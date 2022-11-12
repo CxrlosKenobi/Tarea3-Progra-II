@@ -8,7 +8,6 @@ import packages.vendingMachine.storages.*;
 
 public class Expendedor {
     private int precioBebidas;
-    private DepositoSodas benedictino;
     private DepositoSodas cocaCola;
     private DepositoSodas sprite;
     private DepositoSodas fanta;
@@ -16,7 +15,6 @@ public class Expendedor {
 
     public Expendedor(int numBebidas, int precioBebidas) {
         this.precioBebidas = precioBebidas;
-        this.benedictino = new DepositoSodas();
         this.cocaCola = new DepositoSodas();
         this.sprite = new DepositoSodas();
         this.fanta = new DepositoSodas();
@@ -26,12 +24,10 @@ public class Expendedor {
             Bebida coke = new CocaCola(precioBebidas);
             Bebida white = new Sprite(precioBebidas);
             Bebida orange = new Fanta(precioBebidas);
-            Bebida water = new Benedictino(precioBebidas);
 
             cocaCola.addBebida(coke);
             sprite.addBebida(white);
             fanta.addBebida(orange);
-            benedictino.addBebida(water);
         }
     }
 
@@ -42,11 +38,6 @@ public class Expendedor {
             int vuelto;
 
             switch (opcionBebida) {
-                case 0:
-                    cache = benedictino.getBebida();
-                    vuelto = checkPrecioBebida(coin);
-                    generateChange(vuelto);
-                    return checkBebidaCache(cache);
 
                 case 1:
                     cache = cocaCola.getBebida();
