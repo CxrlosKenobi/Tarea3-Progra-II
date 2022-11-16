@@ -3,6 +3,9 @@ package tarea.app.packages;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
+import tarea.app.packages._exceptions.NoHayBebidaException;
+import tarea.app.packages._exceptions.PagoIncorrectoException;
+import tarea.app.packages._exceptions.PagoInsuficienteException;
 import tarea.app.packages.customer.Comprador;
 import tarea.app.packages.machine.Expendedor;
 
@@ -10,8 +13,8 @@ public class PanelPrincipal extends JPanel implements MouseListener {
     private Comprador com;
     private Expendedor exp;
 
-    public PanelPrincipal() {
-        exp = new Expendedor();
+    public PanelPrincipal() throws NoHayBebidaException, PagoInsuficienteException, PagoIncorrectoException {
+        exp = new Expendedor(5, 500);
         com = new Comprador();
         this.setBackground(Color.blue);
         this.setLayout(null);
