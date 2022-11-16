@@ -6,7 +6,16 @@ import packages.sodas.*;
 import packages.sodas.flavours.*;
 import packages.vendingMachine.storages.*;
 
-public class Expendedor {
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.*;
+import javax.swing.*;
+
+import org.w3c.dom.css.RGBColor;
+
+import java.io.*;
+
+public class Expendedor  {
     private int precioBebidas;
     private DepositoSodas cocaCola;
     private DepositoSodas sprite;
@@ -94,5 +103,19 @@ public class Expendedor {
         int vuelto = (coin.getValor() - this.precioBebidas) / 100;
         
         return vuelto;
+    }
+
+    public void paint(Graphics g ){
+        g.setColor(Color.gray);
+        g.fillRect(590, 30, 600, 600);
+        g.setColor(Color.black);
+        g.fillRect(600, 40, 380, 580);
+        g.setColor(new Color(130, 142, 161));
+        g.fillRect(610, 520, 360, 80);
+
+        cocaCola.paint(g);        
+        sprite.paint(g);
+        fanta.paint(g);
+
     }
 }
