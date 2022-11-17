@@ -1,4 +1,4 @@
-package packages._exceptions;
+package tarea.app.packages._exceptions;
 import java.lang.Exception;
 
 public class PagoIncorrectoException extends Exception {
