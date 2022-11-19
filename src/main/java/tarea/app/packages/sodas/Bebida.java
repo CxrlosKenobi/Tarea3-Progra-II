@@ -1,7 +1,7 @@
 package tarea.app.packages.sodas;
 //
 import tarea.app.packages._exceptions.*;
-
+import java.awt.*;
 public abstract class Bebida {
     private String nombre;
     private int precio;
@@ -20,6 +20,8 @@ public abstract class Bebida {
     }
 
     public abstract String beber();
+
+    public abstract void paint(Graphics g, int x, int y);
 
     @Override
     public String toString() {
