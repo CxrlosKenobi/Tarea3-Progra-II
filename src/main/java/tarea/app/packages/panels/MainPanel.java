@@ -1,4 +1,5 @@
 package tarea.app.packages.panels;
+
 //
 // Import expendedor
 import tarea.app.packages.machine.Expendedor;
@@ -11,16 +12,12 @@ import java.awt.*;
 public class MainPanel extends JPanel implements MouseListener {
     private Comprador customer;
     private Expendedor machine;
+    
 
     public MainPanel() throws NoHayBebidaException, PagoInsuficienteException, PagoIncorrectoException {
         this.machine = new Expendedor(5, 500);
         this.customer = new Comprador();
-        this.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent event) {
-                System.out.println("Mouse clicked at " + event.getX() + ", " + event.getY());
-            }
-        });
+        this.addMouseListener(this);
     }
 
     Image image = new ImageIcon("assets/images/backgroundWall.jpg").getImage();
@@ -41,9 +38,22 @@ public class MainPanel extends JPanel implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        // TODO Auto-generated method stub
+
+        System.out.println("Mouse clicked at " + e.getX() + ", " + e.getY());
+
+        // if i click on the button i will buy a drink}
+        if (e.getX() >= 0 && e.getX() <= 200 && e.getY() >= 0 && e.getY() <= 200) {
+            try {
+                machine.comprarBebida(null, 0);
+                System.out.println("Bebida comprada");
+            } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException ex) {
+                ex.printStackTrace();
+            }
+        }
 
     }
+
+    
 
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -62,4 +72,5 @@ public class MainPanel extends JPanel implements MouseListener {
         // TODO Auto-generated method stub
 
     }
+
 }
