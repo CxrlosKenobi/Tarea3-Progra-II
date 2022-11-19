@@ -1,4 +1,5 @@
 package tarea.app.packages.machine.storages;
+
 import tarea.app.packages.sodas.Bebida;
 import tarea.app.packages.sodas.flavours.*;
 
@@ -17,29 +18,21 @@ public class DepositoSodas {
   }
 
   public Bebida getBebida() {
-      if (this.dep.size() > 0) {
-          return this.dep.remove(0);
+    if (this.dep.size() > 0) {
+      return this.dep.remove(0);
 
-      } else {
-          return null;
-      }
+    } else {
+      return null;
+    }
   }
 
   public void paint(Graphics g) {
-    for(int i = 0; i < this.dep.size(); i++) {
-        if(this.dep.get(i) instanceof CocaCola) {
-            g.setColor(Color.red);
-            g.fillRect(630 ,420-(90*i)  ,60 , 80);
+    int x = 626;
+    int y = 426;
 
-        } else if(this.dep.get(i) instanceof Fanta) {
-            g.setColor(Color.gray);
-            g.fillRect(750  ,420-(90*i)  ,60 , 80);
-
-        } else if(this.dep.get(i) instanceof Fanta) {
-            g.setColor(Color.orange);
-            g.fillRect(870 ,420-(90*i)  ,60 , 80);
-
-        }
+    for (Bebida b : dep) {
+      b.paint(g, x, y);
+      y -= 80;
     }
   }
 }

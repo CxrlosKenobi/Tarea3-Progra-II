@@ -24,7 +24,7 @@ public class Expendedor {
 
         for (int i = 0; i < numBebidas; i++) {
             Bebida coke = new CocaCola(precioBebidas,  100 + i);
-            Bebida white = new Fanta(precioBebidas, 200 + i);
+            Bebida white = new Sprite(precioBebidas, 200 + i);
             Bebida orange = new Fanta(precioBebidas, 300 + i);
 
             cocaCola.addBebida(coke);
